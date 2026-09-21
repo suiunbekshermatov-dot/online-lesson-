@@ -1,395 +1,789 @@
 <!DOCTYPE html>
+
 <html lang="ru">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>IT & Business College — Справочник групп и старост</title>
+
   
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
+
     tailwind.config = {
+
       theme: {
+
         extend: {
+
           fontFamily: {
+
             sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+
           },
+
           colors: {
+
             brand: {
+
               50: '#eff6ff',
+
               100: '#dbeafe',
+
               500: '#3b82f6',
+
               600: '#2563eb',
+
               700: '#1d4ed8',
+
               navy: '#0a192f',
+
               dark: '#071324'
+
             },
+
             wa: {
+
               DEFAULT: '#25D366',
+
               hover: '#20bd5a',
+
               light: '#dcfce7',
+
               dark: '#15803d'
+
             }
+
           }
+
         }
+
       }
+
     }
+
   </script>
+
   <style>
+
     body {
+
       background: radial-gradient(circle at 50% 20%, #f1f5f9 0%, #e2e8f0 100%);
+
       -webkit-font-smoothing: antialiased;
+
     }
+
     .spotlight-shadow {
+
       box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
+
     }
+
   </style>
+
 </head>
+
 <body class="min-h-screen flex flex-col text-slate-900">
 
+
+
   <!-- Шапка сайта -->
+
   <header class="w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-30">
+
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+
       <div class="flex items-center space-x-3">
+
         <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-extrabold text-white text-sm shadow-md shadow-blue-500/20">
+
           ITB
+
         </div>
+
         <div>
+
           <h1 class="text-sm sm:text-base font-bold leading-tight">IT & Business College</h1>
+
           <p class="text-[11px] text-slate-400">Справочник кураторов и старост</p>
+
         </div>
+
       </div>
+
       <button onclick="openModal()" class="inline-flex items-center gap-2 bg-emerald-500/10 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-xl transition duration-200">
+
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+
         <span>Отправить онлайн-урок</span>
+
       </button>
+
     </div>
+
   </header>
 
+
+
   <!-- Главный блок: Spotlight-поиск -->
+
   <main class="flex-grow flex flex-col items-center justify-start max-w-5xl w-full mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 transition-all duration-300" id="mainContainer">
+
     
+
     <!-- Приветственный блок (виден только при пустом поиске) -->
+
     <div id="heroText" class="text-center mb-8 space-y-2 max-w-xl transition-opacity duration-300">
+
       <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Поиск групп и кураторов</h2>
+
       <p class="text-xs sm:text-sm text-slate-500">Введите шифр группы, фамилию преподавателя, номер аудитории или телефон старосты</p>
+
     </div>
+
+
 
     <!-- Строка поиска -->
+
     <div class="w-full max-w-2xl relative mb-6">
+
       <div class="relative bg-white rounded-2xl spotlight-shadow transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-600">
+
         <svg class="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+
           <circle cx="11" cy="11" r="8"></circle>
+
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
         </svg>
+
         <input 
+
           type="text" 
+
           id="spotlightSearch" 
+
           autofocus 
+
           placeholder="Начните вводить: CMN-26, SCA, Маннап, 408..." 
+
           class="w-full pl-12 sm:pl-14 pr-12 py-4 sm:py-4.5 text-base sm:text-lg bg-transparent rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none"
+
         >
+
         <button id="clearBtn" onclick="resetSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" title="Очистить">
+
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+
         </button>
+
       </div>
+
+
 
       <!-- Быстрые теги (под строкой) -->
+
       <div id="quickTags" class="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs text-slate-500">
+
         <span class="font-medium">Быстрый выбор:</span>
+
         <button onclick="setQuery('1 курс')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">1 курс</button>
+
         <button onclick="setQuery('2 курс')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">2 курс</button>
+
         <button onclick="setQuery('3 курс')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">3 курс</button>
+
         <button onclick="setQuery('SCA')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">SCA</button>
+
         <button onclick="setQuery('CMN-26')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">CMN-26</button>
+
       </div>
+
     </div>
+
+
 
     <!-- Область результатов поиска (по умолчанию скрыта) -->
+
     <div id="resultsWrapper" class="w-full hidden space-y-4">
+
       <div class="flex items-center justify-between px-2 text-xs sm:text-sm text-slate-500 font-medium">
+
         <div>Найдено результатов: <strong id="resultsCount" class="text-blue-600 font-bold">0</strong></div>
+
         <button onclick="resetSearch()" class="text-slate-400 hover:text-slate-700 underline text-xs">Закрыть результаты</button>
+
       </div>
 
+
+
       <!-- Сетка карточек -->
+
       <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"></div>
+
     </div>
+
+
 
   </main>
 
+
+
   <!-- Модальное окно: отправка онлайн-урока старосте -->
+
   <div id="lessonModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm hidden">
+
     <div class="bg-slate-900 border border-slate-800 text-white w-full max-w-lg rounded-3xl p-6 sm:p-7 shadow-2xl space-y-5 relative">
+
       <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+
       </button>
 
+
+
       <div>
+
         <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-0.5 rounded-full">WhatsApp Dispatcher</span>
+
         <h3 class="text-xl font-bold mt-2">Отправить ссылку на онлайн-урок</h3>
+
         <p class="text-xs text-slate-400 mt-1">Сообщение сформируется автоматически и откроется в WhatsApp старосты группы.</p>
+
       </div>
+
+
 
       <div class="space-y-3.5 text-xs sm:text-sm">
+
         <div>
+
           <label class="block font-semibold text-slate-300 mb-1">Группа:</label>
+
           <select id="modalGroupSelect" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"></select>
+
         </div>
 
+
+
         <div>
+
           <label class="block font-semibold text-slate-300 mb-1">Ссылка Zoom или Google Meet:</label>
+
           <input type="url" id="modalLink" placeholder="https://meet.google.com/... или Zoom" class="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
         </div>
 
+
+
         <div>
+
           <label class="block font-semibold text-slate-300 mb-1">Предмет / Время (необязательно):</label>
+
           <input type="text" id="modalSubject" placeholder="Напр: Программирование (10:00)" class="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
         </div>
+
       </div>
+
+
 
       <div class="flex gap-2.5 pt-2">
+
         <button onclick="closeModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-2.5 rounded-xl transition text-xs sm:text-sm">Отмена</button>
+
         <button onclick="executeSendLesson()" class="flex-1 bg-wa hover:bg-wa-hover text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 text-xs sm:text-sm">
+
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+
           <span>Открыть в WhatsApp</span>
+
         </button>
+
       </div>
+
     </div>
+
   </div>
+
+
 
   <!-- Всплывающее уведомление (Toast) -->
+
   <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 pointer-events-none opacity-0 translate-y-6 transition-all duration-300 z-50">
+
     <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+
     <span id="toastMsg">Уведомление</span>
+
   </div>
 
+
+
   <script>
+
     const curatorsData = [
+
       // 1 КУРС
+
       { course: 1, group: "ACO-26", name: "Nurzhan Nazarkulova", room: "Ауд. 307 (Блок C)", email: "nurzhan.nazarkulova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-147", phone: "996558072216", phoneDisplay: "+996 (558) 072-216" },
+
       { course: 1, group: "CFL-26", name: "Salia Kurmanova", room: "Ауд. 507 (Блок C)", email: "salia.kurmanova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-135", phone: "996704024607", phoneDisplay: "+996 (704) 024-607" },
+
       { course: 1, group: "CMN-26", name: "Маннап уулу Нурланбек", room: "Ауд. 408 (Блок C)", email: "nurlanbek.mannapuulu@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-136", phone: "996600001512", phoneDisplay: "+996 (600) 001-512" },
+
       { course: 1, group: "CSC-26", name: "Erbol Bolushev", room: "Ауд. 505 (Блок C)", email: "erbol.bolushov@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-137", phone: "996708700787", phoneDisplay: "+996 (708) 700-787" },
+
       { course: 1, group: "DES-26A", name: "Aigerim Akusheva", room: "Ауд. 409 (Блок C)", email: "aigerim.akusheva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-138", phone: "996223433457", phoneDisplay: "+996 (223) 433-457" },
+
       { course: 1, group: "DES-26B", name: "Aidana Abylova", room: "Ауд. 506 (Блок C)", email: "aidana.abylova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-139", phone: "996700715160", phoneDisplay: "+996 (700) 715-160" },
+
       { course: 1, group: "FLET-26", name: "Aizada Mambetsadykova", room: "Ауд. 510 (Блок C)", email: "aizada.mambetsadykova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-141", phone: "996708406999", phoneDisplay: "+996 (708) 406-999" },
+
       { course: 1, group: "MAR-26A", name: "Murat Dzhaparov", room: "Ауд. H206 (Блок H)", email: "murat.dzhaparov@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-142", phone: "996708273804", phoneDisplay: "+996 (708) 273-804" },
+
       { course: 1, group: "MAR-26B", name: "Salidat Isaeva", room: "Ауд. 504 (Блок C)", email: "salidat.isaeva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-143", phone: "996502160211", phoneDisplay: "+996 (502) 160-211" },
+
       { course: 1, group: "SCA-26A", name: "Dosbol Aliev", room: "Ауд. 405 (Блок C)", email: "dosbol.aliev@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-144", phone: "996505770060", phoneDisplay: "+996 (505) 770-060" },
+
       { course: 1, group: "SCA-26B", name: "Azizbek Karimov", room: "Ауд. 505 (Блок C)", email: "azizbek.karimov@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-145", phone: "996999978004", phoneDisplay: "+996 (999) 978-004" },
+
       { course: 1, group: "SCA-26C", name: "Talant Arystanov", room: "Ауд. 509 (Блок C)", email: "talant.arystanov@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-146", phone: "996505556508", phoneDisplay: "+996 (505) 556-508" },
 
+
+
       // 2 КУРС
+
       { course: 2, group: "ACO25", name: "Aizada Omurkulova", room: "Ауд. 504 (Блок C)", email: "aizada.omurkulova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-97", phone: "996998388287", phoneDisplay: "+996 (998) 388-287" },
+
       { course: 2, group: "CSC25", name: "Akylai Uraimzhan Kyzy", room: "Ауд. 307 (Блок C)", email: "akylai.uraimzhankyzy@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-98", phone: "996706575403", phoneDisplay: "+996 (706) 575-403" },
+
       { course: 2, group: "SCA25A", name: "Suyunbek Shermatov", room: "Ауд. 207 (Блок C)", email: "shermatovsuyunbek@gmail.com", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-104", phone: "996705205605", phoneDisplay: "+996 (705) 205-605" },
+
       { course: 2, group: "SCA25B", name: "Dastan Satybaev", room: "Ауд. H207 (Блок H)", email: "dastan.satybaev@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-105", phone: "996226473000", phoneDisplay: "+996 (226) 473-000" },
+
       { course: 2, group: "SCA25C", name: "Kubanych Dzhyrgalbekov", room: "Ауд. H205 (Блок H)", email: "dzhyrgalbekov.kubanych@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-106", phone: "996705277210", phoneDisplay: "+996 (705) 277-210" },
+
       { course: 2, group: "MAR25A", name: "Alia Abdralieva", room: "Ауд. 504 (Блок C)", email: "aliia.abdralieva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-101", phone: "996507041217", phoneDisplay: "+996 (507) 041-217" },
+
       { course: 2, group: "MAR25B", name: "Zhyldyz Indigaraeva", room: "Ауд. 408 (Блок C)", email: "zhyldyz.indigaraeva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-102", phone: "996559575949", phoneDisplay: "+996 (559) 575-949" },
+
       { course: 2, group: "MAR25C", name: "Alia Abdralieva", room: "Ауд. 504 (Блок C)", email: "aliia.abdralieva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-103", phone: "996777779777", phoneDisplay: "+996 (777) 779-777" },
+
       { course: 2, group: "MAR25D", name: "Aiperi Toktosunova", room: "Ауд. 506 (Блок C)", email: "aiperi.toktosunova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-117", phone: "996500170109", phoneDisplay: "+996 (500) 170-109" },
+
       { course: 2, group: "DES25A", name: "Nurzada Ergeshova", room: "Ауд. 510 (Блок C)", email: "nurzada.ergeshova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-99", phone: "996503145956", phoneDisplay: "+996 (503) 145-956" },
+
       { course: 2, group: "DES25B", name: "Nargiza Kutmanova", room: "Ауд. 507 (Блок C)", email: "nargiza.kutmanova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-100", phone: "996505109889", phoneDisplay: "+996 (505) 109-889" },
+
       { course: 2, group: "FLET 25A", name: "Nurzat Usupova", room: "Ауд. 408 (Блок C)", email: "nurzat.usupova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-148", phone: "996551696982", phoneDisplay: "+996 (551) 696-982" },
+
       { course: 2, group: "FLET 25B", name: "Nurzada Kartaeva", room: "Ауд. 409 (Блок C)", email: "nurzada.kartaeva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-149", phone: "996708894245", phoneDisplay: "+996 (708) 894-245" },
 
+
+
       // 3 КУРС
+
       { course: 3, group: "CSC24", name: "Aidar Asakeev", room: "Ауд. 405 (Блок C)", email: "aidar.asakeev1@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-78", phone: "996998202818", phoneDisplay: "+996 (998) 202-818" },
+
       { course: 3, group: "ACO24", name: "Zhaigul Seitalieva", room: "Ауд. 507 (Блок C)", email: "zhaigul.seitalieva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-77", phone: "996772000453", phoneDisplay: "+996 (772) 000-453" },
+
       { course: 3, group: "MAR24C", name: "Gulnura Diykanbaeva", room: "Ауд. 307 (Блок C)", email: "gulnura.dyikanbaeva@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-116", phone: "996709371950", phoneDisplay: "+996 (709) 371-950" },
+
       { course: 3, group: "SCA24A", name: "Zhenish Orozahunov", room: "Ауд. 501 (Блок C)", email: "orozakhunov.zhenishbek@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-83", phone: "996502040883", phoneDisplay: "+996 (502) 040-883" },
+
       { course: 3, group: "MAR24A", name: "Gulshaiyr Samatova", room: "Ауд. 502 (Блок C)", email: "gulshaiyr.samatova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-81", phone: "996704685521", phoneDisplay: "+996 (704) 468-521" },
+
       { course: 3, group: "MAR24B", name: "Aida Abdyrazak", room: "Ауд. 408 (Блок C)", email: "aida.abdyrazak@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-82", phone: "996709071239", phoneDisplay: "+996 (709) 071-239" },
+
       { course: 3, group: "SCA24B", name: "Emilbek Dzholdoshbekov", room: "Ауд. 207 (Блок C)", email: "emilbek.zholdoshbekov@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-84", phone: "996776088709", phoneDisplay: "+996 (776) 088-709" },
+
       { course: 3, group: "SCA24C", name: "Khadizha Khazhhazh", room: "Ауд. 506 (Блок C)", email: "khadizha.khazhhazh@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-85", phone: "996999905900", phoneDisplay: "+996 (999) 905-900" },
+
       { course: 3, group: "DES24A", name: "Mirlan Nurbekov", room: "Ауд. H205 (Блок H)", email: "mirlan.nurbekov@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-79", phone: "996507777840", phoneDisplay: "+996 (507) 777-840" },
+
       { course: 3, group: "DES24B", name: "Aizhamal Imankulova", room: "Ауд. 502 (Блок C)", email: "aizhamal.imankulova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-80", phone: "996504310508", phoneDisplay: "+996 (504) 310-508" }
+
     ];
 
+
+
     const input = document.getElementById('spotlightSearch');
+
     const clearBtn = document.getElementById('clearBtn');
+
     const heroText = document.getElementById('heroText');
+
     const quickTags = document.getElementById('quickTags');
+
     const resultsWrapper = document.getElementById('resultsWrapper');
+
     const resultsGrid = document.getElementById('resultsGrid');
+
     const resultsCount = document.getElementById('resultsCount');
+
     const modalSelect = document.getElementById('modalGroupSelect');
 
+
+
     // Наполнение селекта в модальном окне
+
     curatorsData.forEach(c => {
+
       const opt = document.createElement('option');
+
       opt.value = c.group;
+
       opt.textContent = `${c.group} — ${c.name}`;
+
       modalSelect.appendChild(opt);
+
     });
 
+
+
     function getInitials(name) {
+
       const parts = name.trim().split(/\s+/);
+
       return parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : name.slice(0, 2).toUpperCase();
+
     }
+
+
 
     function setQuery(text) {
+
       input.value = text;
+
       handleSearch();
+
       input.focus();
+
     }
 
+
+
     function resetSearch() {
+
       input.value = '';
+
       clearBtn.classList.add('hidden');
+
       resultsWrapper.classList.add('hidden');
+
       heroText.classList.remove('hidden');
+
       quickTags.classList.remove('hidden');
+
       input.focus();
+
     }
+
+
 
     input.addEventListener('input', handleSearch);
 
+
+
     function handleSearch() {
+
       const q = input.value.trim().toLowerCase();
+
       const cleanQ = q.replace(/[\s\-\(\)\+]/g, '');
 
+
+
       if (!q) {
+
         resetSearch();
+
         return;
+
       }
+
+
 
       clearBtn.classList.remove('hidden');
+
       resultsWrapper.classList.remove('hidden');
+
       heroText.classList.add('hidden');
+
       quickTags.classList.add('hidden');
 
+
+
       const filtered = curatorsData.filter(item => {
+
         const groupClean = item.group.toLowerCase().replace(/[\s\-]/g, '');
+
         const phoneRaw = item.phone || '';
+
         const phoneDisplay = (item.phoneDisplay || '').toLowerCase();
 
+
+
         return (
+
           item.group.toLowerCase().includes(q) ||
+
           groupClean.includes(cleanQ) ||
+
           item.name.toLowerCase().includes(q) ||
+
           item.room.toLowerCase().includes(q) ||
+
           item.email.toLowerCase().includes(q) ||
+
           phoneRaw.includes(cleanQ) ||
+
           phoneDisplay.includes(q) ||
+
           (q.includes('курс') && item.course === parseInt(q))
+
         );
+
       });
+
+
 
       resultsCount.textContent = filtered.length;
+
       resultsGrid.innerHTML = '';
 
+
+
       if (filtered.length === 0) {
+
         resultsGrid.innerHTML = `
+
           <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-dashed border-slate-300">
+
             <p class="text-sm font-bold text-slate-800">Ничего не найдено</p>
+
             <p class="text-xs text-slate-500 mt-1">По запросу «${input.value}» совпадений нет.</p>
+
           </div>
+
         `;
+
         return;
+
       }
+
+
 
       filtered.forEach(item => {
+
         const card = document.createElement('div');
+
         card.className = "bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm hover:shadow-md transition flex flex-col justify-between";
 
+
+
         const initials = getInitials(item.name);
+
         const waLink = item.phone ? `https://api.whatsapp.com/send?phone=${item.phone}` : '#';
 
+
+
         card.innerHTML = `
+
           <div>
+
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+
               <div class="flex items-center gap-2.5">
+
                 <div class="w-9 h-9 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center text-xs">
+
                   ${initials}
+
                 </div>
+
                 <div>
+
                   <h4 class="text-sm font-bold text-slate-900 leading-tight">${item.name}</h4>
+
                   <span class="text-[11px] font-semibold text-slate-500">${item.course} курс</span>
+
                 </div>
+
               </div>
+
               <span class="font-extrabold text-xs px-2.5 py-1 bg-slate-100 rounded-lg text-slate-900">${item.group}</span>
+
             </div>
+
+
 
             <div class="py-3 space-y-2 text-xs">
+
               <div class="flex justify-between items-center text-slate-600">
+
                 <span>Аудитория:</span>
+
                 <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">${item.room}</span>
+
               </div>
+
               <div class="flex justify-between items-center text-slate-600">
+
                 <span>Староста (WhatsApp):</span>
+
                 <a href="${waLink}" target="_blank" class="font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2 py-0.5 rounded transition">
+
                   ${item.phoneDisplay}
+
                 </a>
+
               </div>
+
             </div>
+
           </div>
+
+
 
           <div class="pt-2 border-t border-slate-100 flex gap-2">
+
             <a href="${item.scheduleUrl}" target="_blank" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs py-2 rounded-xl text-center transition">
+
               Расписание
+
             </a>
+
             <a href="${waLink}" target="_blank" class="flex-1 bg-wa hover:bg-wa-hover text-white font-bold text-xs py-2 rounded-xl text-center transition flex items-center justify-center gap-1.5 shadow-sm">
+
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+
               <span>WhatsApp</span>
+
             </a>
+
           </div>
+
         `;
 
+
+
         resultsGrid.appendChild(card);
+
       });
+
     }
+
+
 
     // Логика модального окна онлайн-урока
+
     function openModal() {
+
       document.getElementById('lessonModal').classList.remove('hidden');
+
     }
+
     function closeModal() {
+
       document.getElementById('lessonModal').classList.add('hidden');
+
     }
+
+
 
     function executeSendLesson() {
+
       const groupCode = document.getElementById('modalGroupSelect').value;
+
       const link = document.getElementById('modalLink').value.trim();
+
       const subject = document.getElementById('modalSubject').value.trim();
 
+
+
       if (!link) {
+
         showToast("Вставьте ссылку на урок!");
+
         return;
+
       }
+
+
 
       const item = curatorsData.find(c => c.group === groupCode);
+
       if (!item || !item.phone) {
+
         showToast("Номер старосты не найден!");
+
         return;
+
       }
 
+
+
       let msg = `Здравствуйте! Ссылка на онлайн-урок для группы ${item.group}:\n\n🔗 ${link}`;
+
       if (subject) msg += `\n📚 Предмет/Время: ${subject}`;
+
       msg += `\n\nСтароста, перешлите, пожалуйста, в общий чат студентов. Спасибо!`;
 
+
+
       const waUrl = `https://api.whatsapp.com/send?phone=${item.phone}&text=${encodeURIComponent(msg)}`;
+
       window.open(waUrl, '_blank');
+
       closeModal();
+
     }
 
+
+
     let toastTimeout;
+
     function showToast(text) {
+
       const toast = document.getElementById('toast');
+
       document.getElementById('toastMsg').textContent = text;
+
       toast.classList.remove('opacity-0', 'translate-y-6');
+
       toast.classList.add('opacity-100', 'translate-y-0');
+
       clearTimeout(toastTimeout);
+
       toastTimeout = setTimeout(() => {
+
         toast.classList.remove('opacity-100', 'translate-y-0');
+
         toast.classList.add('opacity-0', 'translate-y-6');
+
       }, 2300);
+
     }
+
   </script>
+
 </body>
+
 </html>
