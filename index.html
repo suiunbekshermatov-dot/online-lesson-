@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>IT & Business College — Кураторы и Старосты</title>
+  <title>IT & Business College — Справочник групп и старост</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,7 @@
   <!-- Шапка сайта -->
   <header class="w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-30">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
-      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetSearch()">
+      <div class="flex items-center space-x-3">
         <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-extrabold text-white text-sm shadow-md shadow-blue-500/20">
           ITB
         </div>
@@ -69,13 +69,13 @@
     </div>
   </header>
 
-  <!-- Главный блок: Spotlight-поиск и курсы -->
-  <main class="flex-grow flex flex-col items-center justify-start max-w-5xl w-full mx-auto px-4 sm:px-6 pt-12 sm:pt-24 pb-16 transition-all duration-300" id="mainContainer">
+  <!-- Главный блок: Spotlight-поиск -->
+  <main class="flex-grow flex flex-col items-center justify-start max-w-5xl w-full mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 transition-all duration-300" id="mainContainer">
     
     <!-- Приветственный блок (виден только при пустом поиске) -->
     <div id="heroText" class="text-center mb-8 space-y-2 max-w-xl transition-opacity duration-300">
-      <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Поиск по колледжу</h2>
-      <p class="text-xs sm:text-sm text-slate-500">Выберите курс или начните вводить группу, преподавателя, аудиторию</p>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Поиск групп и кураторов</h2>
+      <p class="text-xs sm:text-sm text-slate-500">Введите шифр группы, фамилию преподавателя, номер аудитории или телефон старосты</p>
     </div>
 
     <!-- Строка поиска -->
@@ -89,7 +89,7 @@
           type="text" 
           id="spotlightSearch" 
           autofocus 
-          placeholder="Поиск: группа, куратор, аудитория или телефон..." 
+          placeholder="Начните вводить: CMN-26, SCA, Маннап, 408..." 
           class="w-full pl-12 sm:pl-14 pr-12 py-4 sm:py-4.5 text-base sm:text-lg bg-transparent rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none"
         >
         <button id="clearBtn" onclick="resetSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" title="Очистить">
@@ -97,28 +97,22 @@
         </button>
       </div>
 
-      <!-- Только 1, 2, 3 курсы -->
-      <div class="flex items-center justify-center gap-3 mt-4">
-        <button id="btnCourse1" onclick="filterByCourse(1)" class="course-btn px-5 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm transition font-bold text-xs sm:text-sm text-slate-700 hover:text-blue-600 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-          1 курс
-        </button>
-        <button id="btnCourse2" onclick="filterByCourse(2)" class="course-btn px-5 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm transition font-bold text-xs sm:text-sm text-slate-700 hover:text-blue-600 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-          2 курс
-        </button>
-        <button id="btnCourse3" onclick="filterByCourse(3)" class="course-btn px-5 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm transition font-bold text-xs sm:text-sm text-slate-700 hover:text-blue-600 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-          3 курс
-        </button>
+      <!-- Быстрые теги (под строкой) -->
+      <div id="quickTags" class="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs text-slate-500">
+        <span class="font-medium">Быстрый выбор:</span>
+        <button onclick="setQuery('1 курс')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">1 курс</button>
+        <button onclick="setQuery('2 курс')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">2 курс</button>
+        <button onclick="setQuery('3 курс')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">3 курс</button>
+        <button onclick="setQuery('SCA')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">SCA</button>
+        <button onclick="setQuery('CMN-26')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">CMN-26</button>
       </div>
     </div>
 
-    <!-- Область результатов (показывается при поиске или выборе курса) -->
+    <!-- Область результатов поиска (по умолчанию скрыта) -->
     <div id="resultsWrapper" class="w-full hidden space-y-4">
       <div class="flex items-center justify-between px-2 text-xs sm:text-sm text-slate-500 font-medium">
-        <div>Найдено групп: <strong id="resultsCount" class="text-blue-600 font-bold">0</strong></div>
-        <button onclick="resetSearch()" class="text-slate-400 hover:text-slate-700 underline text-xs">Скрыть результаты</button>
+        <div>Найдено результатов: <strong id="resultsCount" class="text-blue-600 font-bold">0</strong></div>
+        <button onclick="resetSearch()" class="text-slate-400 hover:text-slate-700 underline text-xs">Закрыть результаты</button>
       </div>
 
       <!-- Сетка карточек -->
@@ -127,7 +121,7 @@
 
   </main>
 
-  <!-- Модальное окно: Отправка урока старосте в WhatsApp -->
+  <!-- Модальное окно: отправка онлайн-урока старосте -->
   <div id="lessonModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm hidden">
     <div class="bg-slate-900 border border-slate-800 text-white w-full max-w-lg rounded-3xl p-6 sm:p-7 shadow-2xl space-y-5 relative">
       <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
@@ -135,9 +129,9 @@
       </button>
 
       <div>
-        <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-0.5 rounded-full">WhatsApp Отправка</span>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-0.5 rounded-full">WhatsApp Dispatcher</span>
         <h3 class="text-xl font-bold mt-2">Отправить ссылку на онлайн-урок</h3>
-        <p class="text-xs text-slate-400 mt-1">Текст сформируется автоматически и откроется в чате WhatsApp старосты.</p>
+        <p class="text-xs text-slate-400 mt-1">Сообщение сформируется автоматически и откроется в WhatsApp старосты группы.</p>
       </div>
 
       <div class="space-y-3.5 text-xs sm:text-sm">
@@ -153,7 +147,7 @@
 
         <div>
           <label class="block font-semibold text-slate-300 mb-1">Предмет / Время (необязательно):</label>
-          <input type="text" id="modalSubject" placeholder="Напр: Информатика (09:00)" class="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          <input type="text" id="modalSubject" placeholder="Напр: Программирование (10:00)" class="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
         </div>
       </div>
 
@@ -217,20 +211,20 @@
       { course: 3, group: "DES24B", name: "Aizhamal Imankulova", room: "Ауд. 502 (Блок C)", email: "aizhamal.imankulova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-80", phone: "996504310508", phoneDisplay: "+996 (504) 310-508" }
     ];
 
-    let selectedCourse = null;
     const input = document.getElementById('spotlightSearch');
     const clearBtn = document.getElementById('clearBtn');
     const heroText = document.getElementById('heroText');
+    const quickTags = document.getElementById('quickTags');
     const resultsWrapper = document.getElementById('resultsWrapper');
     const resultsGrid = document.getElementById('resultsGrid');
     const resultsCount = document.getElementById('resultsCount');
     const modalSelect = document.getElementById('modalGroupSelect');
 
-    // Заполнение селекта групп для отправки ссылки
+    // Наполнение селекта в модальном окне
     curatorsData.forEach(c => {
       const opt = document.createElement('option');
       opt.value = c.group;
-      opt.textContent = `${c.group} (${c.course} курс) — ${c.name}`;
+      opt.textContent = `${c.group} — ${c.name}`;
       modalSelect.appendChild(opt);
     });
 
@@ -239,51 +233,28 @@
       return parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : name.slice(0, 2).toUpperCase();
     }
 
-    function filterByCourse(courseNum) {
-      if (selectedCourse === courseNum) {
-        resetSearch();
-        return;
-      }
-      selectedCourse = courseNum;
-      input.value = '';
-      updateCourseButtons();
-      renderFiltered();
-    }
-
-    function updateCourseButtons() {
-      [1, 2, 3].forEach(c => {
-        const btn = document.getElementById(`btnCourse${c}`);
-        if (selectedCourse === c) {
-          btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-md');
-          btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
-        } else {
-          btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-md');
-          btn.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
-        }
-      });
+    function setQuery(text) {
+      input.value = text;
+      handleSearch();
+      input.focus();
     }
 
     function resetSearch() {
       input.value = '';
-      selectedCourse = null;
       clearBtn.classList.add('hidden');
       resultsWrapper.classList.add('hidden');
       heroText.classList.remove('hidden');
-      updateCourseButtons();
+      quickTags.classList.remove('hidden');
       input.focus();
     }
 
-    input.addEventListener('input', () => {
-      selectedCourse = null;
-      updateCourseButtons();
-      renderFiltered();
-    });
+    input.addEventListener('input', handleSearch);
 
-    function renderFiltered() {
+    function handleSearch() {
       const q = input.value.trim().toLowerCase();
       const cleanQ = q.replace(/[\s\-\(\)\+]/g, '');
 
-      if (!q && selectedCourse === null) {
+      if (!q) {
         resetSearch();
         return;
       }
@@ -291,12 +262,9 @@
       clearBtn.classList.remove('hidden');
       resultsWrapper.classList.remove('hidden');
       heroText.classList.add('hidden');
+      quickTags.classList.add('hidden');
 
       const filtered = curatorsData.filter(item => {
-        if (selectedCourse !== null) {
-          return item.course === selectedCourse;
-        }
-
         const groupClean = item.group.toLowerCase().replace(/[\s\-]/g, '');
         const phoneRaw = item.phone || '';
         const phoneDisplay = (item.phoneDisplay || '').toLowerCase();
@@ -320,7 +288,7 @@
         resultsGrid.innerHTML = `
           <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-dashed border-slate-300">
             <p class="text-sm font-bold text-slate-800">Ничего не найдено</p>
-            <p class="text-xs text-slate-500 mt-1">По вашему запросу совпадений нет.</p>
+            <p class="text-xs text-slate-500 mt-1">По запросу «${input.value}» совпадений нет.</p>
           </div>
         `;
         return;
@@ -377,7 +345,7 @@
       });
     }
 
-    // Модальное окно
+    // Логика модального окна онлайн-урока
     function openModal() {
       document.getElementById('lessonModal').classList.remove('hidden');
     }
