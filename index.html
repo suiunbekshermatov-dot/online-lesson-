@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>IT & Business College — Кураторы, Старосты и Онлайн-уроки</title>
+  <title>IT & Business College — Кураторы и Старосты</title>
   
-  <!-- Inter & Plus Jakarta Sans Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,12 +21,9 @@
             brand: {
               50: '#eff6ff',
               100: '#dbeafe',
-              200: '#bfdbfe',
               500: '#3b82f6',
               600: '#2563eb',
               700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
               navy: '#0a192f',
               dark: '#071324'
             },
@@ -38,13 +33,6 @@
               light: '#dcfce7',
               dark: '#15803d'
             }
-          },
-          boxShadow: {
-            'subtle': '0 2px 10px rgba(0, 0, 0, 0.04)',
-            'card': '0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03)',
-            'card-hover': '0 20px 30px -8px rgba(15, 23, 42, 0.12), 0 8px 12px -4px rgba(15, 23, 42, 0.04)',
-            'glow-blue': '0 0 25px -5px rgba(37, 99, 235, 0.35)',
-            'glow-green': '0 0 25px -5px rgba(37, 211, 102, 0.35)'
           }
         }
       }
@@ -52,182 +40,140 @@
   </script>
   <style>
     body {
-      background-color: #f8fafc;
-      color: #0f172a;
+      background: radial-gradient(circle at 50% 20%, #f1f5f9 0%, #e2e8f0 100%);
       -webkit-font-smoothing: antialiased;
-      -webkit-tap-highlight-color: transparent;
     }
-    .glass-nav {
-      background: rgba(7, 19, 36, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      height: 6px;
-      width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 999px;
+    .spotlight-shadow {
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+<body class="min-h-screen flex flex-col text-slate-900">
 
-  <header class="glass-nav text-white sticky top-0 z-40 border-b border-slate-800 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-      <div class="flex items-center space-x-3.5">
-        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center font-extrabold text-white text-base shadow-md shadow-blue-500/20 ring-1 ring-white/20">
+  <!-- Шапка сайта -->
+  <header class="w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetSearch()">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-extrabold text-white text-sm shadow-md shadow-blue-500/20">
           ITB
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <h1 class="text-sm sm:text-base font-bold tracking-tight text-white leading-tight">IT & Business College</h1>
-            <span class="hidden md:inline-flex text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30">СПО</span>
-          </div>
-          <p class="text-xs text-slate-400 font-medium">Международный университет «Ала-Тоо»</p>
+          <h1 class="text-sm sm:text-base font-bold leading-tight">IT & Business College</h1>
+          <p class="text-[11px] text-slate-400">Справочник кураторов и старост</p>
         </div>
       </div>
-
-      <div class="flex items-center gap-2.5">
-        <a href="#quickSender" class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-300 hover:text-white border border-emerald-500/30 hover:bg-emerald-600 text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-xl transition duration-200">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          <span class="hidden sm:inline">Отправить онлайн-урок</span>
-          <span class="sm:hidden">Онлайн-урок</span>
-        </a>
-      </div>
+      <button onclick="openModal()" class="inline-flex items-center gap-2 bg-emerald-500/10 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-xl transition duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        <span>Отправить онлайн-урок</span>
+      </button>
     </div>
   </header>
 
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+  <!-- Главный блок: Spotlight-поиск и курсы -->
+  <main class="flex-grow flex flex-col items-center justify-start max-w-5xl w-full mx-auto px-4 sm:px-6 pt-12 sm:pt-24 pb-16 transition-all duration-300" id="mainContainer">
+    
+    <!-- Приветственный блок (виден только при пустом поиске) -->
+    <div id="heroText" class="text-center mb-8 space-y-2 max-w-xl transition-opacity duration-300">
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Поиск по колледжу</h2>
+      <p class="text-xs sm:text-sm text-slate-500">Выберите курс или начните вводить группу, преподавателя, аудиторию</p>
+    </div>
 
-    <!-- Online Lesson Quick Dispatcher for Teachers -->
-    <section id="quickSender" class="bg-gradient-to-br from-brand-navy via-slate-900 to-brand-dark rounded-3xl p-5 sm:p-7 text-white shadow-xl border border-slate-800/80 relative overflow-hidden">
-      <div class="absolute -top-32 -right-32 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      
-      <div class="relative z-10 max-w-4xl">
-        <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          Быстрый сервис для преподавателей
-        </div>
-        <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-2">
-          Отправка ссылки Zoom / Google Meet старосте в 1 клик
-        </h2>
-        <p class="text-slate-300 text-xs sm:text-sm mb-5 leading-relaxed">
-          Выберите группу, укажите ссылку на онлайн-урок и предмет. При нажатии автоматически откроется WhatsApp старосты группы с уже сформированным и готовым текстом для отправки в чат студентов!
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3.5">
-          <!-- Select Group -->
-          <div class="sm:col-span-4">
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Академическая группа:</label>
-            <select id="quickGroupSelect" class="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
-              <option value="">— Выберите группу —</option>
-            </select>
-          </div>
-
-          <!-- Subject / Time (Optional) -->
-          <div class="sm:col-span-3">
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Предмет / Время (по желанию):</label>
-            <input type="text" id="quickSubject" placeholder="Напр: Информатика (09:00)" class="w-full bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
-          </div>
-
-          <!-- Link input and button -->
-          <div class="sm:col-span-5">
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Ссылка на Zoom / Meet:</label>
-            <div class="flex gap-2">
-              <input type="url" id="quickLessonLink" placeholder="https://meet.google.com/... или Zoom" class="flex-1 min-w-0 bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
-              <button onclick="sendQuickLesson()" class="bg-wa hover:bg-wa-hover text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition duration-200 transform active:scale-95 flex-shrink-0">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                <span>Отправить</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Search Bar & Filters -->
-    <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-subtle border border-slate-200/80 flex flex-col md:flex-row gap-4 items-center justify-between">
-      <!-- Search Input -->
-      <div class="relative w-full md:w-96">
-        <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="searchInput" placeholder="Поиск по шифру, куратору, аудитории или телефону..." class="w-full pl-10 pr-9 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
-        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition" title="Очистить">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+    <!-- Строка поиска -->
+    <div class="w-full max-w-2xl relative mb-6">
+      <div class="relative bg-white rounded-2xl spotlight-shadow transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-600">
+        <svg class="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="spotlightSearch" 
+          autofocus 
+          placeholder="Поиск: группа, куратор, аудитория или телефон..." 
+          class="w-full pl-12 sm:pl-14 pr-12 py-4 sm:py-4.5 text-base sm:text-lg bg-transparent rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none"
+        >
+        <button id="clearBtn" onclick="resetSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" title="Очистить">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
-      <!-- Course Tabs -->
-      <div class="flex bg-slate-100 p-1 rounded-xl w-full md:w-auto overflow-x-auto custom-scrollbar">
-        <button onclick="setCourse('all')" class="course-tab flex-1 md:flex-initial text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition active bg-white text-blue-600 shadow-sm" data-course="all">Все курсы</button>
-        <button onclick="setCourse(1)" class="course-tab flex-1 md:flex-initial text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition" data-course="1">1 курс</button>
-        <button onclick="setCourse(2)" class="course-tab flex-1 md:flex-initial text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition" data-course="2">2 курс</button>
-        <button onclick="setCourse(3)" class="course-tab flex-1 md:flex-initial text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition" data-course="3">3 курс</button>
-      </div>
-    </section>
-
-    <!-- Results stats indicator -->
-    <div class="flex justify-between items-center px-1 text-xs sm:text-sm text-slate-500 font-medium">
-      <div>Показано групп: <strong id="resultsCount" class="text-blue-600 font-bold">35</strong> из 35</div>
-      <div class="hidden sm:flex items-center gap-1.5 text-xs text-slate-400">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-        <span>Прямой переход в WhatsApp и EduPage</span>
+      <!-- Только 1, 2, 3 курсы -->
+      <div class="flex items-center justify-center gap-3 mt-4">
+        <button id="btnCourse1" onclick="filterByCourse(1)" class="course-btn px-5 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm transition font-bold text-xs sm:text-sm text-slate-700 hover:text-blue-600 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+          1 курс
+        </button>
+        <button id="btnCourse2" onclick="filterByCourse(2)" class="course-btn px-5 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm transition font-bold text-xs sm:text-sm text-slate-700 hover:text-blue-600 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+          2 курс
+        </button>
+        <button id="btnCourse3" onclick="filterByCourse(3)" class="course-btn px-5 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 shadow-sm transition font-bold text-xs sm:text-sm text-slate-700 hover:text-blue-600 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          3 курс
+        </button>
       </div>
     </div>
 
-    <section id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <!-- Cohort cards will be rendered here by JavaScript -->
-    </section>
-
-    <!-- Advisor and Student Information Memo -->
-    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-subtle relative overflow-hidden">
-      <div class="w-1.5 h-full bg-gradient-to-b from-blue-500 via-indigo-600 to-cyan-500 absolute left-0 top-0"></div>
-      <div class="flex items-center gap-3 mb-5">
-        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold shadow-sm">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-slate-900 leading-tight">Памятка для студентов и преподавателей</h3>
-          <p class="text-xs text-slate-500 font-medium">Регламент взаимодействия с кураторами и старостами</p>
-        </div>
+    <!-- Область результатов (показывается при поиске или выборе курса) -->
+    <div id="resultsWrapper" class="w-full hidden space-y-4">
+      <div class="flex items-center justify-between px-2 text-xs sm:text-sm text-slate-500 font-medium">
+        <div>Найдено групп: <strong id="resultsCount" class="text-blue-600 font-bold">0</strong></div>
+        <button onclick="resetSearch()" class="text-slate-400 hover:text-slate-700 underline text-xs">Скрыть результаты</button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-        <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          <span><strong>Онлайн-уроки:</strong> Преподаватели направляют ссылки старосте группы, который оперативно дублирует их в общий чат студентов.</span>
-        </div>
-        <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          <span><strong>Пропуски и справки:</strong> Заявления и медицинские справки передаются лично куратору в течение 3 рабочих дней.</span>
-        </div>
-        <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          <span><strong>График связи:</strong> Кураторы принимают обращения в будние дни с <strong>08:30 до 17:00</strong>. В нерабочее время пишите на email.</span>
-        </div>
-        <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          <span><strong>Расписание EduPage:</strong> По кнопке «Расписание» всегда отображается актуальная сетка пар группы в реальном времени.</span>
-        </div>
-      </div>
-    </section>
+      <!-- Сетка карточек -->
+      <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"></div>
+    </div>
 
   </main>
 
-  <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500 font-medium">
-    <p>© 2026 IT & Business College | Международный университет «Ала-Тоо»</p>
-  </footer>
+  <!-- Модальное окно: Отправка урока старосте в WhatsApp -->
+  <div id="lessonModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-slate-800 text-white w-full max-w-lg rounded-3xl p-6 sm:p-7 shadow-2xl space-y-5 relative">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-slate-950/90 backdrop-blur-md text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 transition-all duration-300 pointer-events-none opacity-0 translate-y-6 z-50">
-    <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-    <span id="toastMsg">Скопировано в буфер обмена!</span>
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-0.5 rounded-full">WhatsApp Отправка</span>
+        <h3 class="text-xl font-bold mt-2">Отправить ссылку на онлайн-урок</h3>
+        <p class="text-xs text-slate-400 mt-1">Текст сформируется автоматически и откроется в чате WhatsApp старосты.</p>
+      </div>
+
+      <div class="space-y-3.5 text-xs sm:text-sm">
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Группа:</label>
+          <select id="modalGroupSelect" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"></select>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Ссылка Zoom или Google Meet:</label>
+          <input type="url" id="modalLink" placeholder="https://meet.google.com/... или Zoom" class="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Предмет / Время (необязательно):</label>
+          <input type="text" id="modalSubject" placeholder="Напр: Информатика (09:00)" class="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        </div>
+      </div>
+
+      <div class="flex gap-2.5 pt-2">
+        <button onclick="closeModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-2.5 rounded-xl transition text-xs sm:text-sm">Отмена</button>
+        <button onclick="executeSendLesson()" class="flex-1 bg-wa hover:bg-wa-hover text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 text-xs sm:text-sm">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Открыть в WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Всплывающее уведомление (Toast) -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 pointer-events-none opacity-0 translate-y-6 transition-all duration-300 z-50">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg">Уведомление</span>
   </div>
 
   <script>
-    /* Complete Database of all 35 Groups with verified curators, classrooms, edupage links and head student numbers */
     const curatorsData = [
       // 1 КУРС
       { course: 1, group: "ACO-26", name: "Nurzhan Nazarkulova", room: "Ауд. 307 (Блок C)", email: "nurzhan.nazarkulova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-147", phone: "996558072216", phoneDisplay: "+996 (558) 072-216" },
@@ -271,163 +217,110 @@
       { course: 3, group: "DES24B", name: "Aizhamal Imankulova", room: "Ауд. 502 (Блок C)", email: "aizhamal.imankulova@alatoo.edu.kg", scheduleUrl: "https://aiuspo.edupage.org/timetable/view.php?num=47&class=-80", phone: "996504310508", phoneDisplay: "+996 (504) 310-508" }
     ];
 
-    let currentCourse = 'all';
-    let searchQuery = '';
+    let selectedCourse = null;
+    const input = document.getElementById('spotlightSearch');
+    const clearBtn = document.getElementById('clearBtn');
+    const heroText = document.getElementById('heroText');
+    const resultsWrapper = document.getElementById('resultsWrapper');
+    const resultsGrid = document.getElementById('resultsGrid');
+    const resultsCount = document.getElementById('resultsCount');
+    const modalSelect = document.getElementById('modalGroupSelect');
 
-    // Initialize group dropdown for the quick lesson sender
-    const quickSelect = document.getElementById('quickGroupSelect');
+    // Заполнение селекта групп для отправки ссылки
     curatorsData.forEach(c => {
       const opt = document.createElement('option');
       opt.value = c.group;
       opt.textContent = `${c.group} (${c.course} курс) — ${c.name}`;
-      quickSelect.appendChild(opt);
+      modalSelect.appendChild(opt);
     });
-
-    function sendQuickLesson() {
-      const selectedGroupCode = document.getElementById('quickGroupSelect').value;
-      const link = document.getElementById('quickLessonLink').value.trim();
-      const subject = document.getElementById('quickSubject').value.trim();
-
-      if (!selectedGroupCode) {
-        showToast("Пожалуйста, выберите группу из списка!");
-        return;
-      }
-      if (!link) {
-        showToast("Пожалуйста, вставьте ссылку на Zoom или Meet!");
-        return;
-      }
-
-      const cohort = curatorsData.find(c => c.group === selectedGroupCode);
-      if (!cohort || !cohort.phone) {
-        showToast("Номер старосты для этой группы не найден.");
-        return;
-      }
-
-      // Format clean message for students
-      let message = `Здравствуйте! Ссылка на онлайн-занятие для группы ${cohort.group}:\n\n🔗 ${link}`;
-      if (subject) {
-        message += `\n📚 Предмет/Время: ${subject}`;
-      }
-      message += `\n\nСтароста, перешлите, пожалуйста, это сообщение в общий чат группы. Спасибо!`;
-
-      const encodedMsg = encodeURIComponent(message);
-      const waUrl = `https://api.whatsapp.com/send?phone=${cohort.phone}&text=${encodedMsg}`;
-
-      window.open(waUrl, '_blank');
-    }
 
     function getInitials(name) {
       const parts = name.trim().split(/\s+/);
-      if (parts.length >= 2) {
-        return (parts[0][0] + parts[1][0]).toUpperCase();
+      return parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : name.slice(0, 2).toUpperCase();
+    }
+
+    function filterByCourse(courseNum) {
+      if (selectedCourse === courseNum) {
+        resetSearch();
+        return;
       }
-      return name.slice(0, 2).toUpperCase();
+      selectedCourse = courseNum;
+      input.value = '';
+      updateCourseButtons();
+      renderFiltered();
     }
 
-    function copyText(text, label = "Скопировано") {
-      const el = document.createElement('textarea');
-      el.value = text;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-      showToast(`${label}: ${text}`);
-    }
-
-    let toastTimeout;
-    function showToast(text) {
-      const toast = document.getElementById('toast');
-      const toastMsg = document.getElementById('toastMsg');
-      toastMsg.textContent = text;
-      toast.classList.remove('opacity-0', 'translate-y-6');
-      toast.classList.add('opacity-100', 'translate-y-0');
-
-      clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => {
-        toast.classList.remove('opacity-100', 'translate-y-0');
-        toast.classList.add('opacity-0', 'translate-y-6');
-      }, 2400);
-    }
-
-    function setCourse(course) {
-      currentCourse = course;
-      document.querySelectorAll('.course-tab').forEach(btn => {
-        if (btn.dataset.course == course) {
-          btn.classList.add('bg-white', 'text-blue-600', 'shadow-sm');
-          btn.classList.remove('text-slate-600');
+    function updateCourseButtons() {
+      [1, 2, 3].forEach(c => {
+        const btn = document.getElementById(`btnCourse${c}`);
+        if (selectedCourse === c) {
+          btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-md');
+          btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
         } else {
-          btn.classList.remove('bg-white', 'text-blue-600', 'shadow-sm');
-          btn.classList.add('text-slate-600');
+          btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-md');
+          btn.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
         }
       });
-      renderCards();
     }
 
-    const searchInput = document.getElementById('searchInput');
-    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    function resetSearch() {
+      input.value = '';
+      selectedCourse = null;
+      clearBtn.classList.add('hidden');
+      resultsWrapper.classList.add('hidden');
+      heroText.classList.remove('hidden');
+      updateCourseButtons();
+      input.focus();
+    }
 
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.toLowerCase().trim();
-      if (searchQuery.length > 0) {
-        clearSearchBtn.classList.remove('hidden');
-      } else {
-        clearSearchBtn.classList.add('hidden');
-      }
-      renderCards();
+    input.addEventListener('input', () => {
+      selectedCourse = null;
+      updateCourseButtons();
+      renderFiltered();
     });
 
-    function clearSearch() {
-      searchInput.value = '';
-      searchQuery = '';
-      clearSearchBtn.classList.add('hidden');
-      searchInput.focus();
-      renderCards();
-    }
+    function renderFiltered() {
+      const q = input.value.trim().toLowerCase();
+      const cleanQ = q.replace(/[\s\-\(\)\+]/g, '');
 
-    function renderCards() {
-      const container = document.getElementById('cardsContainer');
-      container.innerHTML = '';
+      if (!q && selectedCourse === null) {
+        resetSearch();
+        return;
+      }
 
-      // Normalize search query removing symbols like hyphens and brackets for flexible matching
-      const cleanQ = searchQuery.replace(/[\s\-\(\)\+]/g, '');
+      clearBtn.classList.remove('hidden');
+      resultsWrapper.classList.remove('hidden');
+      heroText.classList.add('hidden');
 
       const filtered = curatorsData.filter(item => {
-        const matchesCourse = currentCourse === 'all' || item.course === Number(currentCourse);
-        
-        if (!searchQuery) return matchesCourse;
+        if (selectedCourse !== null) {
+          return item.course === selectedCourse;
+        }
 
-        const nameLower = item.name.toLowerCase();
-        const groupLower = item.group.toLowerCase();
-        const roomLower = item.room.toLowerCase();
+        const groupClean = item.group.toLowerCase().replace(/[\s\-]/g, '');
         const phoneRaw = item.phone || '';
         const phoneDisplay = (item.phoneDisplay || '').toLowerCase();
-        const emailLower = item.email.toLowerCase();
 
-        // Flexible phone match without punctuation
-        const phoneMatches = phoneRaw.includes(cleanQ) || phoneDisplay.includes(searchQuery);
-
-        const textMatches = 
-          groupLower.includes(searchQuery) ||
-          groupLower.replace(/[\s\-]/g, '').includes(cleanQ) ||
-          nameLower.includes(searchQuery) ||
-          roomLower.includes(searchQuery) ||
-          emailLower.includes(searchQuery) ||
-          phoneMatches;
-
-        return matchesCourse && textMatches;
+        return (
+          item.group.toLowerCase().includes(q) ||
+          groupClean.includes(cleanQ) ||
+          item.name.toLowerCase().includes(q) ||
+          item.room.toLowerCase().includes(q) ||
+          item.email.toLowerCase().includes(q) ||
+          phoneRaw.includes(cleanQ) ||
+          phoneDisplay.includes(q) ||
+          (q.includes('курс') && item.course === parseInt(q))
+        );
       });
 
-      document.getElementById('resultsCount').textContent = filtered.length;
+      resultsCount.textContent = filtered.length;
+      resultsGrid.innerHTML = '';
 
       if (filtered.length === 0) {
-        container.innerHTML = `
-          <div class="col-span-full bg-white rounded-3xl p-12 text-center border border-dashed border-slate-300">
-            <div class="w-14 h-14 bg-slate-50 text-slate-400 rounded-2xl flex items-center justify-center mx-auto mb-3.5 border border-slate-200">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </div>
-            <h4 class="text-base font-bold text-slate-800 mb-1">Ничего не найдено</h4>
-            <p class="text-xs text-slate-500 max-w-sm mx-auto">По запросу «${searchQuery}» совпадений нет. Проверьте правильность написания группы, ФИО куратора или номера аудитории.</p>
-            <button onclick="clearSearch()" class="mt-4 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 px-3.5 py-1.5 rounded-lg transition">Сбросить поиск</button>
+        resultsGrid.innerHTML = `
+          <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-dashed border-slate-300">
+            <p class="text-sm font-bold text-slate-800">Ничего не найдено</p>
+            <p class="text-xs text-slate-500 mt-1">По вашему запросу совпадений нет.</p>
           </div>
         `;
         return;
@@ -435,95 +328,100 @@
 
       filtered.forEach(item => {
         const card = document.createElement('div');
-        card.className = "bg-white rounded-3xl border border-slate-200/80 shadow-subtle hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-1";
+        card.className = "bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm hover:shadow-md transition flex flex-col justify-between";
 
         const initials = getInitials(item.name);
-        const coursePillColors = item.course === 1 
-          ? "bg-cyan-50 text-cyan-700 border-cyan-200" 
-          : item.course === 2 
-          ? "bg-blue-50 text-blue-700 border-blue-200" 
-          : "bg-amber-50 text-amber-700 border-amber-200";
-
         const waLink = item.phone ? `https://api.whatsapp.com/send?phone=${item.phone}` : '#';
 
         card.innerHTML = `
-          <!-- Card Header -->
-          <div class="p-5 pb-3.5 flex items-center gap-3.5 border-b border-slate-100 bg-gradient-to-b from-white to-slate-50/50">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-navy via-brand-800 to-blue-600 text-white font-extrabold flex items-center justify-center text-sm shadow-md shadow-blue-500/20 flex-shrink-0">
-              ${initials}
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center text-xs">
+                  ${initials}
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 leading-tight">${item.name}</h4>
+                  <span class="text-[11px] font-semibold text-slate-500">${item.course} курс</span>
+                </div>
+              </div>
+              <span class="font-extrabold text-xs px-2.5 py-1 bg-slate-100 rounded-lg text-slate-900">${item.group}</span>
             </div>
-            <div class="flex-1 min-w-0">
-              <h4 class="text-sm font-bold text-slate-900 truncate" title="${item.name}">${item.name}</h4>
-              <span class="inline-flex items-center text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${coursePillColors} mt-0.5">
-                ${item.course} курс
-              </span>
+
+            <div class="py-3 space-y-2 text-xs">
+              <div class="flex justify-between items-center text-slate-600">
+                <span>Аудитория:</span>
+                <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">${item.room}</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-600">
+                <span>Староста (WhatsApp):</span>
+                <a href="${waLink}" target="_blank" class="font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2 py-0.5 rounded transition">
+                  ${item.phoneDisplay}
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Card Body Details -->
-          <div class="p-5 py-4 space-y-2.5 flex-grow text-xs">
-            <!-- Group Code -->
-            <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-              <span class="font-semibold text-slate-500 flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Группа
-              </span>
-              <span class="font-extrabold bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-slate-900 tracking-wide">
-                ${item.group}
-              </span>
-            </div>
-
-            <!-- Classroom -->
-            <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-              <span class="font-semibold text-slate-500 flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                Аудитория
-              </span>
-              <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-lg border border-blue-100">
-                ${item.room}
-              </span>
-            </div>
-
-            <!-- Head Student / Starosta Phone -->
-            <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-              <span class="font-semibold text-slate-500 flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-500 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Староста
-              </span>
-              <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-lg transition flex items-center gap-1" title="Открыть WhatsApp со старостой">
-                ${item.phoneDisplay}
-              </a>
-            </div>
-          </div>
-
-          <!-- Card Actions Footer -->
-          <div class="p-3 bg-slate-50/75 border-t border-slate-100 flex items-center gap-2">
-            <a href="${item.scheduleUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold py-2 px-2.5 rounded-xl shadow-sm text-center transition flex items-center justify-center gap-1.5" title="Открыть расписание в EduPage">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span>Расписание</span>
+          <div class="pt-2 border-t border-slate-100 flex gap-2">
+            <a href="${item.scheduleUrl}" target="_blank" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs py-2 rounded-xl text-center transition">
+              Расписание
             </a>
-            
-            <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-wa hover:bg-wa-hover text-white text-xs font-bold py-2 px-2.5 rounded-xl shadow-sm text-center transition flex items-center justify-center gap-1.5" title="Написать старосте в WhatsApp">
+            <a href="${waLink}" target="_blank" class="flex-1 bg-wa hover:bg-wa-hover text-white font-bold text-xs py-2 rounded-xl text-center transition flex items-center justify-center gap-1.5 shadow-sm">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
               <span>WhatsApp</span>
             </a>
-
-            <a href="mailto:${item.email}" title="Написать куратору: ${item.email}" class="p-2 bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 rounded-xl transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </a>
-
-            <button onclick="copyText('${item.email}', 'Email куратора')" title="Скопировать email" class="p-2 bg-white hover:bg-slate-100 border border-slate-200 text-slate-500 hover:text-slate-800 rounded-xl transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
           </div>
         `;
 
-        container.appendChild(card);
+        resultsGrid.appendChild(card);
       });
     }
 
-    // Initial render on load
-    renderCards();
+    // Модальное окно
+    function openModal() {
+      document.getElementById('lessonModal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('lessonModal').classList.add('hidden');
+    }
+
+    function executeSendLesson() {
+      const groupCode = document.getElementById('modalGroupSelect').value;
+      const link = document.getElementById('modalLink').value.trim();
+      const subject = document.getElementById('modalSubject').value.trim();
+
+      if (!link) {
+        showToast("Вставьте ссылку на урок!");
+        return;
+      }
+
+      const item = curatorsData.find(c => c.group === groupCode);
+      if (!item || !item.phone) {
+        showToast("Номер старосты не найден!");
+        return;
+      }
+
+      let msg = `Здравствуйте! Ссылка на онлайн-урок для группы ${item.group}:\n\n🔗 ${link}`;
+      if (subject) msg += `\n📚 Предмет/Время: ${subject}`;
+      msg += `\n\nСтароста, перешлите, пожалуйста, в общий чат студентов. Спасибо!`;
+
+      const waUrl = `https://api.whatsapp.com/send?phone=${item.phone}&text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+      closeModal();
+    }
+
+    let toastTimeout;
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = text;
+      toast.classList.remove('opacity-0', 'translate-y-6');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-6');
+      }, 2300);
+    }
   </script>
 </body>
 </html>
