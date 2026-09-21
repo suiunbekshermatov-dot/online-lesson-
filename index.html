@@ -127,15 +127,16 @@
         </button>
       </div>
 
-      <!-- Быстрые теги -->
+      <!-- Быстрый выбор: только 1, 2 и 3 курсы -->
       <div id="quickTags" class="flex flex-wrap items-center justify-center gap-2 mt-3 text-xs text-slate-500">
         <span class="font-medium">Быстрый выбор:</span>
-        <button onclick="setQuery('SCA')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">SCA</button>
-        <button onclick="setQuery('CMN-26')" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700">CMN-26</button>
+        <button onclick="setQuery('1 курс')" class="px-3 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300">1 курс</button>
+        <button onclick="setQuery('2 курс')" class="px-3 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300">2 курс</button>
+        <button onclick="setQuery('3 курс')" class="px-3 py-1 rounded-lg bg-white/80 hover:bg-white border border-slate-200 shadow-sm transition font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300">3 курс</button>
       </div>
     </div>
 
-    <!-- Область результатов поиска (показывается при вводе) -->
+    <!-- Область результатов поиска (показывается при вводе или клике на курс) -->
     <div id="resultsWrapper" class="w-full hidden space-y-4">
       <div class="flex items-center justify-between px-2 text-xs sm:text-sm text-slate-500 font-medium">
         <div>Найдено результатов: <strong id="resultsCount" class="text-blue-600 font-bold">0</strong></div>
